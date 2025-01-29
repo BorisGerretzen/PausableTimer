@@ -7,6 +7,7 @@ namespace PausableTimers
     {
         /// <summary>
         /// Gets or sets the interval on which to raise events.
+        /// If the timer is running, setting this property will reset the remaining interval.
         /// </summary>
         double Interval { get; set; }
         
@@ -21,7 +22,7 @@ namespace PausableTimers
         bool IsPaused { get; }
         
         /// <summary>
-        /// 
+        /// Starts the timer. If the timer is paused, it will resume.
         /// </summary>
         void Start();
         

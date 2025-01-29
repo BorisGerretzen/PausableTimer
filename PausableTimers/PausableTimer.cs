@@ -5,7 +5,10 @@ namespace PausableTimers
 {
     public class PausableTimer : IPausableTimer
     {        
+        /// <inheritdoc />
         public bool IsPaused => _state == TimerState.Paused;
+        
+        /// <inheritdoc />
         public double Interval
         {
             get => _timer.Interval;
@@ -19,6 +22,8 @@ namespace PausableTimers
                 }
             }
         }
+        
+        /// <inheritdoc />
         public event ElapsedEventHandler Elapsed;
         
         private readonly Timer _timer = new Timer();
@@ -26,7 +31,8 @@ namespace PausableTimers
         private double _remainingInterval;
         private double _originalInterval;
         private TimerState _state = TimerState.Stopped;
-
+        
+        /// <inheritdoc />
         public void Start()
         {
             if (IsPaused)
@@ -42,7 +48,8 @@ namespace PausableTimers
             
             _state = TimerState.Running;
         }
-
+        
+        /// <inheritdoc />
         public void Stop()
         {
             ResetState();
@@ -51,7 +58,8 @@ namespace PausableTimers
             
             _state = TimerState.Stopped;
         }
-
+        
+        /// <inheritdoc />
         public void Pause()
         {
             if (_state != TimerState.Running) return;
@@ -62,7 +70,8 @@ namespace PausableTimers
             
             _state = TimerState.Paused;
         }
-
+        
+        /// <inheritdoc />
         public void Resume()
         {
             if (_state != TimerState.Paused) return;

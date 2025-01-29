@@ -25,7 +25,7 @@ jobs:
       - name: Test
         run: dotnet test --configuration Release --no-build
       - name: Pack
-        run: dotnet pack --configuration Release --no-build --output ${{ env.NuGetDirectory }} /p:Version=$(${{ github.event.inputs.version }})
+        run: dotnet pack --configuration Release --no-build --output ${{ env.NuGetDirectory }} /p:Version=${{ github.event.inputs.version }}
 #      - name: Push to nuget
 #        run: dotnet nuget push ${{ env.NuGetDirectory }}/*.nupkg --source https://api.nuget.org/v3/index.json --api-key ${{ secrets.NUGET_API_KEY }}
       - name: Create git tag

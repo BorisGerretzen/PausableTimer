@@ -1,0 +1,22 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PausableTimer", "PausableTimer\PausableTimer.csproj", "{E8B57BB9-6B0A-4CE6-AF68-4E5580863A6C}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PausableTimer.Tests", "PausableTimer.Tests\PausableTimer.Tests.csproj", "{EB542648-4EF0-4574-B0A4-1E30F1DCFBA7}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{E8B57BB9-6B0A-4CE6-AF68-4E5580863A6C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E8B57BB9-6B0A-4CE6-AF68-4E5580863A6C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E8B57BB9-6B0A-4CE6-AF68-4E5580863A6C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E8B57BB9-6B0A-4CE6-AF68-4E5580863A6C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{EB542648-4EF0-4574-B0A4-1E30F1DCFBA7}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{EB542648-4EF0-4574-B0A4-1E30F1DCFBA7}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{EB542648-4EF0-4574-B0A4-1E30F1DCFBA7}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{EB542648-4EF0-4574-B0A4-1E30F1DCFBA7}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+EndGlobal

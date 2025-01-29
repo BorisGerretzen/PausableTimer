@@ -1,8 +1,9 @@
-﻿using System.Timers;
+﻿using System;
+using System.Timers;
 
-namespace PausableTimer
+namespace PausableTimers
 {
-    public interface IPausableTimer
+    public interface IPausableTimer : IDisposable
     {
         /// <summary>
         /// Gets or sets the interval on which to raise events.

@@ -1,10 +1,9 @@
-﻿using System;
-using System.Diagnostics;
+﻿using System.Diagnostics;
 using System.Timers;
 
-namespace PausableTimer
+namespace PausableTimers
 {
-    public class PausableTimer : IPausableTimer, IDisposable
+    public class PausableTimer : IPausableTimer
     {        
         public bool IsPaused => _state == TimerState.Paused;
         public double Interval
@@ -12,6 +11,7 @@ namespace PausableTimer
             get => _timer.Interval;
             set
             {
+                _originalInterval = value;
                 _timer.Interval = value;
                 if (_state == TimerState.Running)
                 {
@@ -24,6 +24,7 @@ namespace PausableTimer
         private readonly Timer _timer = new Timer();
         private readonly Stopwatch _stopwatch = new Stopwatch();
         private double _remainingInterval;
+        private double _originalInterval;
         private TimerState _state = TimerState.Stopped;
 
         public void Start()
@@ -72,7 +73,7 @@ namespace PausableTimer
             
             _state = TimerState.Running;
         }
-
+        
         public PausableTimer()
         {
             _timer.Elapsed += TimerCallback;
@@ -83,6 +84,8 @@ namespace PausableTimer
             if (_state == TimerState.Paused || _state == TimerState.Stopped) return;
 
             _stopwatch.Restart();
+            _remainingInterval = _originalInterval;
+            _timer.Interval = _originalInterval;
             Elapsed?.Invoke(this, e);
         }
 

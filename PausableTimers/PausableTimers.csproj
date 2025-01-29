@@ -1,0 +1,36 @@
+<Project Sdk="Microsoft.NET.Sdk">
+    <PropertyGroup>
+        <TargetFramework>netstandard2.0</TargetFramework>
+        <PackageId>PausableTimer</PackageId>
+        <Authors>Boris Gerretzen</Authors>
+        <Description>A simple System.Timers.Timer inspired timer with pause and resume functionality.</Description>
+        <PackageIcon>icon.png</PackageIcon>
+        <PackageReadmeFile>README.md</PackageReadmeFile>
+        <PackageProjectUrl>https://github.com/borisGerretzen/PausableTimer</PackageProjectUrl>
+        <RepositoryUrl>https://github.com/borisGerretzen/PausableTimer</RepositoryUrl>
+        <RepositoryType>git</RepositoryType>
+        <PackageTags>timer;pause;pausable;pausabletimer</PackageTags>
+        <PackageLicenseExpression>LGPL-2.1-only</PackageLicenseExpression>
+        <RootNamespace>PausableTimers</RootNamespace>
+
+        <EmbedUntrackedSources>true</EmbedUntrackedSources>
+        <PublishRepositoryUrl>true</PublishRepositoryUrl>
+        <IncludeSymbols>true</IncludeSymbols>
+        <SymbolPackageFormat>snupkg</SymbolPackageFormat>
+    </PropertyGroup>
+    
+    <ItemGroup>
+        <PackageReference Include="Microsoft.SourceLink.GitHub" Version="1.1.1" PrivateAssets="All"/>
+    </ItemGroup>
+    
+    <ItemGroup>
+        <None Include="../icon.png">
+            <Pack>true</Pack>
+            <PackagePath>/</PackagePath>
+        </None>
+        <None Include="../README.md">
+            <Pack>true</Pack>
+            <PackagePath>/</PackagePath>
+        </None>
+    </ItemGroup>
+</Project>

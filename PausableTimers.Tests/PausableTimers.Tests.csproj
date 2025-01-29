@@ -6,6 +6,7 @@
         <ImplicitUsings>enable</ImplicitUsings>
         <Nullable>enable</Nullable>
         <IsPackable>false</IsPackable>
+        <RootNamespace>PausableTimers.Tests</RootNamespace>
     </PropertyGroup>
 
     <ItemGroup>
@@ -27,7 +28,6 @@
     </ItemGroup>
 
     <ItemGroup>
-      <ProjectReference Include="..\PausableTimer\PausableTimer.csproj" />
+      <ProjectReference Include="..\PausableTimers\PausableTimers.csproj" />
     </ItemGroup>
-
 </Project>

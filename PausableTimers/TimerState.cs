@@ -1,4 +1,4 @@
-﻿namespace PausableTimer
+﻿namespace PausableTimers
 {
     public enum TimerState
     {

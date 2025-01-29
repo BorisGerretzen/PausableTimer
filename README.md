@@ -1,5 +1,5 @@
 ﻿# PausableTimer
-[![NuGet](https://img.shields.io/nuget/v/PausableTimer.svg)](https://www.nuget.org/packages/PausableTimer/)
+[![NuGet](https://img.shields.io/nuget/v/PausableTimers.svg)](https://www.nuget.org/packages/PausableTimers/)
 
 A lightweight C# library that provides a simple timer like `System.Timers.Timer` but with the ability to pause and resume.
 

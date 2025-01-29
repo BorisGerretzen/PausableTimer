@@ -1,7 +1,7 @@
 <Project Sdk="Microsoft.NET.Sdk">
     <PropertyGroup>
         <TargetFramework>netstandard2.0</TargetFramework>
-        <PackageId>PausableTimer</PackageId>
+        <PackageId>PausableTimers</PackageId>
         <Authors>Boris Gerretzen</Authors>
         <Description>A simple System.Timers.Timer inspired timer with pause and resume functionality.</Description>
         <PackageIcon>icon.png</PackageIcon>

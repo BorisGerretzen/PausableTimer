@@ -6,8 +6,8 @@ namespace PausableTimers
     public class PausableTimer : IPausableTimer
     {        
         /// <inheritdoc />
-        public bool IsPaused => _state == TimerState.Paused;
-        
+        public TimerState State { get; private set; } = TimerState.Stopped;
+
         /// <inheritdoc />
         public double Interval
         {
@@ -16,7 +16,7 @@ namespace PausableTimers
             {
                 _originalInterval = value;
                 _timer.Interval = value;
-                if (_state == TimerState.Running)
+                if (State == TimerState.Running)
                 {
                     _remainingInterval = value;
                 }
@@ -30,23 +30,22 @@ namespace PausableTimers
         private readonly Stopwatch _stopwatch = new Stopwatch();
         private double _remainingInterval;
         private double _originalInterval;
-        private TimerState _state = TimerState.Stopped;
-        
+
         /// <inheritdoc />
         public void Start()
         {
-            if (IsPaused)
+            if (State == TimerState.Paused)
             {
                 Resume();
             }
-            else if (_state == TimerState.Stopped)
+            else if (State == TimerState.Stopped)
             {
                 ResetState();
                 _stopwatch.Start();
                 _timer.Start();
             }
             
-            _state = TimerState.Running;
+            State = TimerState.Running;
         }
         
         /// <inheritdoc />
@@ -56,31 +55,31 @@ namespace PausableTimers
             _timer.Stop();
             _stopwatch.Reset();
             
-            _state = TimerState.Stopped;
+            State = TimerState.Stopped;
         }
         
         /// <inheritdoc />
         public void Pause()
         {
-            if (_state != TimerState.Running) return;
+            if (State != TimerState.Running) return;
 
             _stopwatch.Stop();
             _remainingInterval -= _stopwatch.Elapsed.TotalMilliseconds;
             _timer.Stop();
             
-            _state = TimerState.Paused;
+            State = TimerState.Paused;
         }
         
         /// <inheritdoc />
         public void Resume()
         {
-            if (_state != TimerState.Paused) return;
+            if (State != TimerState.Paused) return;
 
             _stopwatch.Restart();
             _timer.Interval = _remainingInterval;
             _timer.Start();
             
-            _state = TimerState.Running;
+            State = TimerState.Running;
         }
         
         public PausableTimer()
@@ -90,7 +89,7 @@ namespace PausableTimers
 
         private void TimerCallback(object state, ElapsedEventArgs e)
         {
-            if (_state == TimerState.Paused || _state == TimerState.Stopped) return;
+            if (State == TimerState.Paused || State == TimerState.Stopped) return;
 
             _stopwatch.Restart();
             _remainingInterval = _originalInterval;

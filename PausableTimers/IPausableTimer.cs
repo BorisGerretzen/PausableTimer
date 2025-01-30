@@ -17,9 +17,9 @@ namespace PausableTimers
         event ElapsedEventHandler Elapsed;
         
         /// <summary>
-        /// Gets a value indicating whether the timer is paused.
+        /// Gets the current state of the timer.
         /// </summary>
-        bool IsPaused { get; }
+        TimerState State { get; }
         
         /// <summary>
         /// Starts the timer. If the timer is paused, it will resume.
